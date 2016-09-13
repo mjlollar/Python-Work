@@ -1,7 +1,7 @@
 # Python-Work
 ## Hello!  You've come to the right place!
 Well, if you were looking for a novice's Python work.
-This is my Respository for all dabblings with Python as I learn the language.
+This is my respository for all dabblings with Python as I learn the language.
 
 Something here *might* be useful to you *sometime*.
 
