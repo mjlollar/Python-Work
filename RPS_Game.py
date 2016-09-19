@@ -1,4 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
+# This code is written for Python3 and related versions.
 
 import random
 import sys
