@@ -9,6 +9,7 @@ I do have a pretty entertaining Rock, Paper, Scissors game as of this writing.
 
 ## Future Projects
 
+  - Creation of simple database for biostatistic information, including definitions, equations, and other relevant information.
   - Generating Fold Change calculator from imported StepOnePlus PCR results
   
 **Matthew Lollar    mjlollar1@gmail.com**
