@@ -7,3 +7,11 @@
 # G and C basepairs and double bonds exist between A and T basepairs, the 
 # presence of G's and C's at this region of your primer will aid in the 
 # annealling probability of your primers.
+
+print('Welcome to the Primer GC content test. Please enter the primer you wish to test')
+
+primer_entry = input("Paste sequence here:\n").upper()
+
+
+seq = primer_entry
+assert len(seq) == (seq.count('U') + seq.count('C') + seq.count('A') + seq.count('G')), "Sequence is invalid, please enter a valid sequence" 
