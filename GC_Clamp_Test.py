@@ -23,5 +23,11 @@ assert len(seq) == (seq.count('U') + seq.count('C') + seq.count('A') + seq.count
 seq2 = seq[-5:]
 gc_clamp = float(seq2.count('G') + seq2.count('C'))
 
-if gc_clamp > 3
-    
+while True:
+    if gc_clamp >= 3:
+        print("The GC content at your 3' end is high. We suggest adjusting your primers")   
+    elif gc_clamp == 2:
+        print("Your GC content at the 3' end is fine.")
+    else gc_clamp <= 1:
+        print("Your GC content at the 3' end is low. This may not be a problem, but if possible we suggest adjusting your primer.")
+        break
