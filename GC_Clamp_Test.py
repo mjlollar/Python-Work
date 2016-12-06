@@ -5,7 +5,7 @@
 # The GC Clamp is the term I'm using to describe the presence of G or C bases within 
 # the last five bases of the 3' end of a primer. As triple bonds exist between
 # G and C basepairs and double bonds exist between A and T basepairs, a higher 
-# presence of G's and C' will promote greater annealing of your primers to 
+# presence of G's and C's will promote greater annealing of your primers to 
 # complementary sequences than T and A basepairs.
 # However, this effect can be deleterious if a run of G and C basepairs occurs at the
 # 3' end of the primer sequence.  Specifically, primer dimers are more likely to 
