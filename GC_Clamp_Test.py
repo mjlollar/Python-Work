@@ -17,4 +17,6 @@ seq = primer_entry
 assert len(seq) == (seq.count('U') + seq.count('C') + seq.count('A') + seq.count('G')), "Sequence is invalid, please enter a valid sequence" 
 
 seq2 = seq[-5:]
+gc_clamp = float((seq2.count('G') + seq2.count('C')) / 5) * 100
 
+if gc_clamp
