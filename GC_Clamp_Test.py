@@ -6,7 +6,7 @@
 # the last five bases of the 3' end of a primer. As triple bonds exist between
 # G and C basepairs and double bonds exist between A and T basepairs, a higher 
 # presence of G's and C's will promote greater annealing of your primers to 
-# complementary sequences than T and A basepairs.
+# complementary sequences than T and A basepairs, which share a double bond.
 # However, this effect can be deleterious if a run of G and C basepairs occurs at the
 # 3' end of the primer sequence.  Specifically, primer dimers are more likely to 
 # occur if GC content in the 3' end is high.  A sweet spot seems to be around 2 or 
