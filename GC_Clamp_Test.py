@@ -8,7 +8,9 @@
 # presence of G's and C' will promote greater annealing of your primers to 
 # complementary sequences than T and A basepairs.
 # However, this effect can be deleterious if a run of G and C basepairs occurs at the
-# 3' end of the primer sequence.  Specifically, primer dimer 
+# 3' end of the primer sequence.  Specifically, primer dimers are more likely to 
+# occur if GC content in the 3' end is high.  A sweet spot seems to be around 2 or 
+# so G's and C's in this region. Let's check out your GC Clamp!
 
 print('Welcome to the Primer GC Clamp test. Please enter the primer you wish to test')
 
