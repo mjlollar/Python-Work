@@ -10,7 +10,7 @@ class Person:
 	def lastName(self):
 		return self.name.split()[-1]   # Assumption two names
 	def giveRaise(self, percent):
-		self.pay = int(slef.pay * (1 + percent))
+		self.pay = int(self.pay * (1 + percent))
 	def __repr__(self):
 		return '[Person: %s, %s]' % (self.name, self.pay)
 		
