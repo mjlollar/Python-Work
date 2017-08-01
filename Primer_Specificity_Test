@@ -6,3 +6,7 @@
 # Return values of score lengths, location of primers, and length between primers (cDNA length).
 # If sequence is not 100% match for gene, search ncbi database for best predicted match (by e-value).
     # Return this to user.
+
+Fasta file format example:
+>FBgn0061469 type=gene; loc=3L:complement(11206422..11210583); ID=FBgn0061469; name=Ube3a; dbxref=FlyBase:FBgn0061469,FlyBase:FBan0006190,FlyBase_Annotation_IDs:CG6190,FlyBase:FBgn0036148,GB:AA816963,GB:AI945680,GB:AQ073824,GB:AW942617,GB:AY069489,GB_protein:AAL39634,UniProt/TrEMBL:Q9VTH1,INTERPRO:IPR000569,GB_protein:AAF50078,INTERPRO:IPR017134,EntrezGene:39266,INTERPRO:IPR032353,BDGP_clone:FBgn0061469; derived_computed_cyto=68B1-68B1; gbunit=AE014296; MD5=41b36b08676844f74a971a6b65ae27bd; length=4162; release=r6.16; species=Dmel; 
+GTCGATATCACTAGTTCATCGATAGCACATCGTTTAGAATGATTTTCAATATTCGTTGCTGCCTGCTTCATTCATAAACA....
