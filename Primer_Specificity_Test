@@ -1,6 +1,6 @@
 # Layout:
 # Extract fastas from ncbi database for gene/mrna sequence (input by user). 
-# Edit Fasta sequence so it can be compaired to primer sequence.
+# Edit Fasta sequence so it can be compaired to primer sequence. (See below for 
     # Remove all parts of fasta file except for the sequence or multiple sequences themselves.
 # Compare the primer sequence with database sequence.
 # Return values of score lengths, location of primers, and length between primers (cDNA length).
