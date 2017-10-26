@@ -54,7 +54,7 @@ new_file = input("Insert a file name for your new file, include .csv:\n")
 
 with open(new_file, 'w', newline='') as File3:
 	writer = csv.writer(File3, dialect='Comma_Delin')
-	writer.writerow("SNP Pos", "FETP", "FST")
+	writer.writerow(["SNP Pos", "FETP", "FST"])
 	writer.writerows([row[0]] + row[1] for row in dict_combined.items())
 
 print(str(new_file) + ' ' + "has been created in your current directory.")
