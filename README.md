@@ -12,4 +12,4 @@ to my files, but the logic might be similar to that needed for your scripts.
 Still a novice, but if anything looks like something you could use feel free
 to email me!
 
-**Matthew Lollar    mjlollar1@gmail.com**
+**Matthew Lollar    mlollar@wisc.edu**
