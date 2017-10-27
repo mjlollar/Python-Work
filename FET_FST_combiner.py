@@ -20,7 +20,6 @@ with open(file_name1, 'r') as File1:
 			for key in rows:
 				del key
 			continue
-print(dict_FET)
 			
 print("FET values for" + " " + str(file_name1) + " " + "compiled.")
 	
