@@ -1,6 +1,9 @@
 # Power analysis calculator for QTL detection strength
 # Null simulation assumes no two locus incompatibility, determines the greatest p-value across genome by chance
-# test simulates one X-autosome incompatibility and one autosome-autosome incompatibility
+
+# Takes input files from SIBSAM (Genetic Mapping by Bulk Segregant Analysis in Drosophila: Experimental Design and Simulation-Based Inference
+# John E. Pool Genetics Early online September 21, 2016; https://doi.org/10.1534/genetics.116.192484) 
+
 
 import sys
 import csv
