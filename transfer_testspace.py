@@ -1,7 +1,3 @@
- Power analysis calculator for QTL detection strength
-# Null simulation assumes no two locus incompatibility, determines the greatest p-value across genome by chance
-# test simulates one X-autosome incompatibility and one autosome-autosome incompatibility
-
 import sys
 import csv
 import scipy.stats as sp
@@ -19,21 +15,18 @@ def read_lines(csv_reader, row_list):
 with open(file_name, 'r') as File:
 	reader = csv.reader(File, dialect='tab_delim')
 	r = list(range(4))
-	r2 = list(range(4, 7))
-	combined_list = []
-	combined_list2 = []
+	combined_list_sterile = []
 	sterile_focal_counts = []
 	sterile_nonfocal_counts = []
-	fertile_focal_counts = []
-	fertile_nonfocal_counts = []
 	
 	for row_number, row in read_lines(reader, r):
 		row_tuples = list(it.combinations(row, 2))
-		combined_list.append(row_tuples)
+		combined_list_sterile.append(row_tuples)
 
-	window_list =  map(list, zip(*combined_list))
 
-	for window in window_list:
+	window_list_sterile = map(list, zip(*combined_list_sterile))
+
+	for window in window_list_sterile:
 		sterile_focal = []
 		sterile_nonfocal =[]
 		for pair in window:
@@ -47,18 +40,21 @@ with open(file_name, 'r') as File:
 		sterile_focal_counts.append(sumsf)
 		sterile_nonfocal_counts.append(sumnsf)
 
-	sterile_tuples = map(list, zip(sterile_focal_counts, sterile_nonfocal_counts))
-	
+	File.seek(0)
+
+	r2 = list(range(4, 7))
+	combined_list_fertile = []
+	fertile_focal_counts = []
+	fertile_nonfocal_counts = []
+
 	for row_number, row in read_lines(reader, r2):
 		row_tuples2 = list(it.combinations(row, 2))
-		combined_list2.append(row_tuples2)
-
-	print(combined_list2)
-
-	window_list2 = map(list, zip(*combined_list2))
+		combined_list_fertile.append(row_tuples2)
 
 
-	for window in window_list2:
+	window_list_fertile = map(list, zip(*combined_list_fertile))
+
+	for window in window_list_fertile:
 		fertile_focal =[]
 		fertile_nonfocal = []
 		for pair in window:
@@ -72,12 +68,16 @@ with open(file_name, 'r') as File:
 		fertile_focal_counts.append(sumff)
 		fertile_nonfocal_counts.append(sumfnf)
 
-	fertile_tuples = map(list, zip(fertile_focal_counts, fertile_nonfocal_counts))
+fertile_tuples = list(map(list, zip(fertile_focal_counts, fertile_nonfocal_counts)))
+sterile_tuples = list(map(list, zip(sterile_focal_counts, sterile_nonfocal_counts)))
 
+File.close()
 
+fisher_groups = map(list, zip(sterile_tuples, fertile_tuples))
 
+for groups in fisher_groups:
+	p_values = []
+	pvalue = sp.fisher_exact(groups)
+	p_values.append(pvalue)
 
-
-
-
-print("running")
+print(p_values)
