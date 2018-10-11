@@ -32,20 +32,20 @@ with open(file_name, 'r') as File:
 	# read in file
 	reader = csv.reader(File, dialect='tab_delim')
 	#Range r value corresponds to (3/16)*500 sterile + 3/16*(250) sterile replicates
-	#Range calue r2 corresponds to 500 fertile replicates
-	r = list(range(0, 367))
-	r2 = list(range(367, 2000))
+	#Range calue r2 corresponds to 406 fertile replicates from 500- 500*3/16 
+	r = list(range(0, 142))
+	r2 = list(range(142, 549))
 	
 	# Generate tuples of all pairwise window values and add to master list
 	for row_number, row in read_lines(reader, r):
 		row_tuples = list(it.combinations(row, 2))
 		combined_list_sterile.append(row_tuples)
-	# Rearrange list of tuples such that windows are grouped in lists, not rows
 	
+	# Rearrange list of tuples such that windows are grouped in lists, not rows
 	window_list_sterile = map(list, zip(*combined_list_sterile))
+	
 	# calculate proportion of sterile focal and non-focal for each window
-
-	# output for this loop produces two new lists of focal/non-focal counts by window
+	# output of this loop produces two new lists of focal/non-focal counts by window
 	for window in window_list_sterile:
 		sterile_focal = []
 		sterile_nonfocal =[]
@@ -92,7 +92,8 @@ sterile_tuples = map(list, zip(sterile_focal_counts, sterile_nonfocal_counts))
 fertile_tuples = map(list, zip(fertile_focal_counts, fertile_nonfocal_counts))
 
 
-# make 2x2 matrices for each window
+# make 2x2 matrices (contingency) for each window
+# Contingency tables for each window take on format of [[sterile-focal, sterile-nonfocal], [fertile-focal, fertile-nonfocal]]
 fisher_groups = map(list, zip(sterile_tuples, fertile_tuples))
 
 p_values = []
