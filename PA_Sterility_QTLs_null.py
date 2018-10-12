@@ -65,8 +65,8 @@ with open(file_name, 'r') as File:
 	File.seek(0)
 	# repeat similar iteration for fertile simulated replicates	
 	for row_number, row in read_lines(reader, r2):
-			row_tuples2 = list(it.combinations(row, 2))
-			combined_list_fertile.append(row_tuples2)
+		row_tuples2 = list(it.combinations(row, 2))
+		combined_list_fertile.append(row_tuples2)
 
 
 	window_list_fertile = map(list, zip(*combined_list_fertile))
