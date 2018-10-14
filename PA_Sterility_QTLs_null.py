@@ -12,7 +12,7 @@ import itertools as it
 
 csv.register_dialect('tab_delim', delimiter="\t", quoting=csv.QUOTE_NONE)
 
-file_name = input("Insert replicate file:\n") 
+file_name = sys.argv[1] 
 
 # function needed to read in rows as lines for list of tuple generation
 def read_lines(csv_reader, row_list):
