@@ -1,9 +1,7 @@
 # Power analysis calculator for QTL detection strength
 # Null simulation assumes no two locus incompatibility, determines the greatest p-value across genome by chance
 
-# Takes input files from SIBSAM (Genetic Mapping by Bulk Segregant Analysis in Drosophila: Experimental Design and Simulation-Based Inference
-# John E. Pool Genetics Early online September 21, 2016; https://doi.org/10.1534/genetics.116.192484) 
-
+# Takes modified input files from SIBSAM (Genetic Mapping by Bulk Segregant Analysis in Drosophila: Experimental Design and Simulation-Based Inference
 
 import sys
 import csv
@@ -14,11 +12,12 @@ csv.register_dialect('tab_delim', delimiter="\t", quoting=csv.QUOTE_NONE)
 
 file_name = sys.argv[1] 
 
-# function needed to read in rows as lines for list of tuple generation
+# function to enumerate rows
 def read_lines(csv_reader, row_list):
 	for row_number, row in enumerate(csv_reader):
 		if row_number in row_list:
 			yield row_number, row
+
 
 with open(file_name, 'r') as File:
 	# generate various lists
@@ -36,15 +35,15 @@ with open(file_name, 'r') as File:
 	r = list(range(0, 142))
 	r2 = list(range(142, 549))
 	
-	# Generate tuples of all pairwise window values and add to master list
+	# Generate tuples of all pairwise window combinations and add to master list
 	for row_number, row in read_lines(reader, r):
 		row_tuples = list(it.combinations(row, 2))
 		combined_list_sterile.append(row_tuples)
 	
-	# Rearrange list of tuples such that windows are grouped in lists, not rows
+	# Rearrange list of tuples for each row such that windows are grouped by position across rows
 	window_list_sterile = map(list, zip(*combined_list_sterile))
 	
-	# calculate proportion of sterile focal and non-focal for each window
+	# calculate proportion of sterile focal and non-focal for each window (where sterile replicate is defined randomly as first range)
 	# output of this loop produces two new lists of focal/non-focal counts by window
 	for window in window_list_sterile:
 		sterile_focal = []
@@ -85,9 +84,7 @@ with open(file_name, 'r') as File:
 		fertile_focal_counts.append(sumff)
 		fertile_nonfocal_counts.append(sumfnf)
 
-File.close()
-
-# combine focal and non-focal sums
+# combine focal and non-focal sums to two lists of two values ([#focal, #nonfocal] for each of sterile and fertile)
 sterile_tuples = map(list, zip(sterile_focal_counts, sterile_nonfocal_counts))
 fertile_tuples = map(list, zip(fertile_focal_counts, fertile_nonfocal_counts))
 
@@ -106,3 +103,5 @@ for groups in fisher_groups:
 # Determine the lowest window p-value and print it
 lowest_pvalue = min(p_values)
 print(lowest_pvalue)
+
+File.close()
