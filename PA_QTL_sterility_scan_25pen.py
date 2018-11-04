@@ -51,7 +51,7 @@ with open(file_name, 'r') as File:
 
 	for window in counted_window_sterile_XA:
 		if window[1] == ('0', '2'):
-			prob = ran.randint(0, 1)
+			prob = ran.randint(0, 3)
 			if prob ==1:
 				sterile_count_XA.append(window[0])
 			else:
@@ -75,7 +75,11 @@ with open(file_name, 'r') as File:
 
 	for window in counted_window_sterile_AA_scan:
 		if window[1] == ('0', '2'):
-			sterile_count_AA_scan.append(window[0])
+			prob = ran.randint(0, 3)
+			if prob == 1:
+				sterile_count_AA_scan.append(window[0])
+			else:
+				pass
 		else:
 			pass
 			
@@ -83,7 +87,11 @@ with open(file_name, 'r') as File:
 
 	for window in counted_window_sterile_XA_scan:
 		if window[1] == ('0', '2'):
-			sterile_count_XA_scan.append(window[0])
+			prob = ran.ranint(0, 3)
+			if prob == 1:
+				sterile_count_XA_scan.append(window[0])
+			else:
+				psss
 		else:
 			pass
 	
