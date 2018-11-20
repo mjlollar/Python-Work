@@ -89,9 +89,9 @@ with open(file_name, 'r') as File:
 
 	window_list2 = list(map(list, zip(*replicate_list_scan)))
 	window_sterileXA_scan = window_list2[25000]
-	counted_window_sterile_XA_scan = list(enumerate(window_sterileXA_scan, 501))
+	counted_window_sterile_XA_scan = list(enumerate(window_sterileXA_scan, range_value1))
 	window_sterileAA_scan = window_list2[79800]
-	counted_window_sterile_AA_scan = list(enumerate(window_sterileAA_scan, 501))
+	counted_window_sterile_AA_scan = list(enumerate(window_sterileAA_scan, range_value1))
 
 	sterile_count_AA_scan = []
 
