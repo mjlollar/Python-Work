@@ -87,9 +87,9 @@ with open(file_name, 'r') as File:
 	final_fertile_count = []
 	final_fertile_focal_count = []
 
-  # Order sterile pairs by first occurance to last occurance. Place in appropriate bin.
+ 	# Order sterile pairs by first occurance to last occurance. Place in appropriate bin.
 	
-  for x in sterile_calls:
+  	for x in sterile_calls:
 		if x in int_sterile_AA_set:
 			final_sterile_AA_count.append(1)
 		else:
